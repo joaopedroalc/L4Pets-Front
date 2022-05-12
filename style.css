@@ -1,0 +1,43 @@
+:root {
+  --verdeForte: #234d20;
+  --verdeMedio: #36802d;
+  --verdeFraco: #77ab59;
+  --verdeMuitoFraco: #c9df8a;
+  --cinza: #f0f7da;
+  --branco: #fff;
+}
+
+.app {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--cinza);
+}
+
+#header {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  background-color: var(--verdeFraco);
+  justify-content: space-around;
+}
+
+#header img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+nav li {
+  font-size: 18px;
+  color: #fff;
+}
