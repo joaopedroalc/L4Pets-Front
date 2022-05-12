@@ -138,3 +138,7 @@ body {
   font-size: 100%;
   list-style-type: none;
 }
+
+a {
+  text-decoration: none !important;
+}
