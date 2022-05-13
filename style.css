@@ -67,7 +67,7 @@ nav li {
 }
 
 .cards {
-  width: 90vw;
+  width: 80vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,6 +79,7 @@ nav li {
   background-color: var(--verdeMuitoFraco);
   width: 100%;
   border-radius: 1em;
+  position: relative;
 }
 
 .card img {
@@ -89,15 +90,95 @@ nav li {
 .btn-modal {
   background-color: var(--verdeForte);
   color: var(--branco);
+  width: 100%;
+  padding: 10px 15px;
+  border: none;
+  font-size: 18px;
 }
 
-.open-modal {
-  background-color: var(--verdeMedio);
-  color: var(--branco);
-  font-size: 18px;
+.hidden {
+  display: none;
+  visibility: hidden;
 }
 
 .modal {
+  visibility: visible;
   font-size: 18px;
   color: #000;
+  z-index: 10;
+  display: flex;
+  position: fixed; /* Stay in place */
+  z-index: 10; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  margin: 0 auto;
+  border-radius: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff;
+  width: 40vw;
+}
+
+.modal-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 25px;
+  background-color: var(--verdeForte);
+}
+
+.modal-body {
+  display: flex;
+  align-self: flex-start;
+  justify-content: center;
+  padding: 0 25px;
+  margin: 2rem 0;
+}
+
+.modal-footer {
+  display: flex;
+  align-self: flex-end;
+  justify-content: flex-end;
+  padding: 10px 25px;
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.close-modal {
+  background-color: var(--verdeForte);
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 300;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.nomePet {
+  font-size: 30px;
+  background-color: var(--verdeFraco);
+  position: absolute;
+  bottom: 20%;
+  left: 35%;
+  padding: 10px 16px;
+  border-radius: 10px;
+  color: var(--branco);
 }
