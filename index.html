@@ -28,6 +28,22 @@
             </a>
           </ul>
         </nav>
+
+        <div id="LoginScreen">
+          <button id="login">
+            Login with Google
+            <img
+              src="/assets/google.png"
+              class="google-icon"
+              alt="google-icon"
+            />
+          </button>
+        </div>
+
+        <div id="dashboard">
+          <div id="userDetails"></div>
+          <button id="logout">Logout</button>
+        </div>
       </header>
 
       <main id="main">
@@ -36,12 +52,12 @@
             <img src="/assets/dog1.png" alt="dog" />
             <h2 class="nomePet">Carlos</h2>
             <button
-             type="button"
-             class="btn-modal"
-             onclick='abrirModal(primeiroModal)'
-           >
-             Ver informações
-           </button>
+              type="button"
+              class="btn-modal"
+              onclick="abrirModal(primeiroModal)"
+            >
+              Ver informações
+            </button>
             <div class="primeiroModal hidden"></div>
           </div>
           <div class="card">
@@ -50,12 +66,12 @@
             <h2 class="nomePet">Jack</h2>
 
             <button
-             type="button"
-             class="btn-modal"
-             onclick='abrirModal(segundoModal)'
-           >
-             Ver informações
-           </button>
+              type="button"
+              class="btn-modal"
+              onclick="abrirModal(segundoModal)"
+            >
+              Ver informações
+            </button>
             <div class="segundoModal hidden"></div>
           </div>
           <div class="card">
@@ -64,12 +80,12 @@
             <h2 class="nomePet">Drico</h2>
 
             <button
-             type="button"
-             class="btn-modal"
-             onclick='abrirModal(terceiroModal)'
-           >
-             Ver informações
-           </button>
+              type="button"
+              class="btn-modal"
+              onclick="abrirModal(terceiroModal)"
+            >
+              Ver informações
+            </button>
             <div class="terceiroModal hidden"></div>
           </div>
         </div>
@@ -78,7 +94,11 @@
       <footer id="footer"></footer>
     </div>
 
-<script src="/main.js"></script>
-<script src="/modal.js"></script>
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+
+    <script src="/js/auth.js"></script>
+    <script src="/js/modal.js"></script>
   </body>
 </html>
