@@ -217,7 +217,20 @@ nav li {
   object-fit: cover;
 }
 
-.name {
+#display-image {
+  width: 100%;
+  height: 200px;
+  border: 1px solid black;
+  background-size: cover;
+}
+
+.botaoLogado,
+.cadastraPet {
+  display: none;
+}
+
+.name,
+.email {
   display: none;
   visibility: hidden;
 }

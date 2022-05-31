@@ -29,16 +29,35 @@ function GoogleLogin() {
   })
 }
 
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    const botaoLogado = document.querySelector(".botaoLogado");
+    botaoLogado.style.display = "block";
+
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    var uid = user.uid;
+    // ...
+  } else {
+    // User is signed out
+    // ...
+    console.log('not logado');
+  }
+});
+
 function showUserDetails(user) {
   document.getElementById('userDetails').innerHTML = `
         <img src="${user.photoURL}" class="userPhoto" onclick="exibirInfosUser()">
         <p class="name">Nome: ${user.displayName}</p>
+        <p class="email">Email: ${user.email}</p>
       `
 }
 
 function exibirInfosUser() {
   document.querySelector('.name').style.display = "block"
   document.querySelector('.name').style.visibility = "visible"
+  document.querySelector('.email').style.display = "block"
+  document.querySelector('.email').style.visibility = "visible"
 }
 
 function checkAuthState() {
