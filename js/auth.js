@@ -29,22 +29,6 @@ function GoogleLogin() {
   })
 }
 
-firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    const botaoLogado = document.querySelector(".botaoLogado");
-    botaoLogado.style.display = "block";
-
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    var uid = user.uid;
-    // ...
-  } else {
-    // User is signed out
-    // ...
-    console.log('not logado');
-  }
-});
-
 function showUserDetails(user) {
   document.getElementById('userDetails').innerHTML = `
         <img src="${user.photoURL}" class="userPhoto" onclick="exibirInfosUser()">
@@ -63,11 +47,20 @@ function exibirInfosUser() {
 function checkAuthState() {
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
+      const botaoLogado = document.querySelector(".botaoLogado");
+      botaoLogado.style.display = "block";
+      botaoLogado.style.visibility = "visible";
+
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      // var uid = user.uid;
+      // ...
       document.getElementById('LoginScreen').style.display = "none"
       document.getElementById('dashboard').style.display = "block"
       showUserDetails(user)
     } else {
-
+      botaoLogado.style.display = "none";
+      botaoLogado.style.visibility = "hidden";
     }
   })
 }
