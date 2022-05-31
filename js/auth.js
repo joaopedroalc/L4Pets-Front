@@ -29,22 +29,6 @@ function GoogleLogin() {
   })
 }
 
-firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    const botaoLogado = document.querySelector(".botaoLogado");
-    botaoLogado.style.display = "block";
-
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    var uid = user.uid;
-    // ...
-  } else {
-    // User is signed out
-    // ...
-    console.log('not logado');
-  }
-});
-
 function showUserDetails(user) {
   document.getElementById('userDetails').innerHTML = `
         <img src="${user.photoURL}" class="userPhoto" onclick="exibirInfosUser()">
@@ -60,20 +44,37 @@ function exibirInfosUser() {
   document.querySelector('.email').style.visibility = "visible"
 }
 
+const botaoRegistrarPet = document.querySelector(".botaoRegistrarPet");
+const infosPet = document.querySelector(".cadastraPet")
+
 function checkAuthState() {
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
+      botaoRegistrarPet.style.display = "block";
+      botaoRegistrarPet.style.visibility = "visible";
+
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      // var uid = user.uid;
+      // ...
       document.getElementById('LoginScreen').style.display = "none"
       document.getElementById('dashboard').style.display = "block"
       showUserDetails(user)
     } else {
-
+      botaoRegistrarPet.style.display = "none";
+      botaoRegistrarPet.style.visibility = "hidden";
+      infosPet.style.display = 'none';
+      infosPet.style.visibility = 'hidden';
     }
   })
 }
 
 function LogoutUser() {
   firebase.auth().signOut().then(() => {
+    botaoRegistrarPet.style.display = "none";
+    botaoRegistrarPet.style.visibility = "hidden";
+    infosPet.style.display = 'none';
+    infosPet.style.visibility = 'hidden';
     document.getElementById('LoginScreen').style.display = "block"
     document.getElementById('dashboard').style.display = "none"
   }).catch(e => {

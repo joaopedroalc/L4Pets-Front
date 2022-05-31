@@ -2,6 +2,7 @@ const form = document.querySelector(".cadastraPet")
 
 function cadastrarPet() {
   form.style.display = 'block';
+  form.style.visibility = 'visible';
 
   const image_input = document.querySelector("#image-input");
 

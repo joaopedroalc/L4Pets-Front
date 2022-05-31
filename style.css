@@ -227,6 +227,7 @@ nav li {
 .botaoLogado,
 .cadastraPet {
   display: none;
+  visibility: hidden;
 }
 
 .name,
