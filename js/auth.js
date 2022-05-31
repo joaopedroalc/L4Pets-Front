@@ -45,6 +45,7 @@ function exibirInfosUser() {
 }
 
 const botaoRegistrarPet = document.querySelector(".botaoRegistrarPet");
+const infosPet = document.querySelector(".cadastraPet")
 
 function checkAuthState() {
   firebase.auth().onAuthStateChanged(user => {
@@ -62,6 +63,8 @@ function checkAuthState() {
     } else {
       botaoRegistrarPet.style.display = "none";
       botaoRegistrarPet.style.visibility = "hidden";
+      infosPet.style.display = 'none';
+      infosPet.style.visibility = 'hidden';
     }
   })
 }
@@ -70,6 +73,8 @@ function LogoutUser() {
   firebase.auth().signOut().then(() => {
     botaoRegistrarPet.style.display = "none";
     botaoRegistrarPet.style.visibility = "hidden";
+    infosPet.style.display = 'none';
+    infosPet.style.visibility = 'hidden';
     document.getElementById('LoginScreen').style.display = "block"
     document.getElementById('dashboard').style.display = "none"
   }).catch(e => {
