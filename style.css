@@ -183,6 +183,13 @@ nav li {
   color: var(--branco);
 }
 
+#LoginScreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
 #login {
   display: flex;
   align-items: center;
@@ -200,6 +207,16 @@ nav li {
   height: 24px;
   object-fit: cover;
   margin-left: 10px;
+}
+
+#register {
+  wight: 100%;
+  background-color: #fff;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+  padding: 8px;
+  color: #000;
 }
 
 #userDetails {

@@ -59,7 +59,9 @@ function checkAuthState() {
       // ...
       document.getElementById('LoginScreen').style.display = "none"
       document.getElementById('dashboard').style.display = "block"
-      showUserDetails(user)
+      if (user.GoogleLogin) {
+        showUserDetails(user)
+      }
     } else {
       botaoRegistrarPet.style.display = "none";
       botaoRegistrarPet.style.visibility = "hidden";
