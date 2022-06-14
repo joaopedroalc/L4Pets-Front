@@ -1,7 +1,7 @@
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyC0fhvvy2_hccvrVB-vOtuBcjor9EjKbYo",
   authDomain: "l4pets.firebaseapp.com",
+  databaseURL: "https://l4pets-default-rtdb.firebaseio.com",
   projectId: "l4pets",
   storageBucket: "l4pets.appspot.com",
   messagingSenderId: "484489501549",
