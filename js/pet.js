@@ -30,15 +30,13 @@ function cadastrarPet() {
 
 }
 
-const nomePet = document.querySelector('input[name="Texto"]').value;
-const localizacao = document.querySelector('input[name="Local"]').value;
-const imagem = document.querySelector("#display-image").style.backgroundImage;
-
 function petCard() {
   const infosForm = document.querySelector(".form");
   infosForm.addEventListener("submit", function (e) {
     e.preventDefault();
-
+    const nomePet = document.querySelector('input[name="Texto"]').value;
+    const localizacao = document.querySelector('input[name="Local"]').value;
+    const imagem = document.querySelector("#display-image").style.backgroundImage;
     const infos = {
       nomePet: nomePet,
       localizacao: localizacao,
@@ -54,7 +52,7 @@ function petCard() {
     <button
       type="button"
       class="btn-modal"
-      onclick="abrirModal()"
+      onclick="abreModal()"
     >
       Ver informações
     </button>
@@ -62,35 +60,48 @@ function petCard() {
   </div>`
     const cards = document.querySelector('.cards')
     cards.innerHTML += card
-
-
   });
 }
-function abrirModal() {
-  return `
+
+function abreModal() {
+  const nomePet = document.querySelector('input[name="Texto"]').value;
+  const localizacao = document.querySelector('input[name="Local"]').value;
+  const hidden = document.querySelector('.hidden')
+
+  console.log('abre')
+  hidden.classList.remove('hidden')
+  hidden.classList.add('modal')
+  hidden.innerHTML = `
   <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="${nomePet}">
-        ${nomePet}
-      </h5>
-      <button class="close-modal" onclick="fecharModal()">X</button>
-    </div>
-    <div class="modal-body">
-      <p>${localizacao}</p>
-    </div>
-    <div class="modal-footer">
-      <button
-        type="button"
-        class="close-modal"
-      >
-        Fechar
-      </button>
-    </div>
+  <div class="modal-header">
+    <h5 class="modal-title" id="${nomePet}">
+      ${nomePet}
+    </h5>
+    <button class="close-modal" onclick="fecharModal()">X</button>
   </div>
-`
+  <div class="modal-body">
+    <p>${localizacao}</p>
+    <img src="${uploaded_image}"/>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="close-modal"
+      onclick="fecharModal()"
+    >
+      Fechar
+    </button>
+  </div>
+</div>`
+  return info
 }
+
+function fecharModal() {
+  const hidden = document.querySelector('.modal-content').parentElement
+  hidden.classList.add('hidden')
+}
+
 petCard()
-abrirModal()
 
 function salvarDadosPet() {
   // SALVAR DADOS NO BANCO AO CLICAR NO BOTAO ANUNCIAR
