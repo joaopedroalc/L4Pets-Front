@@ -52,7 +52,7 @@ function petCard() {
     <button
       type="button"
       class="btn-modal"
-      onclick="abreModal()"
+      onclick="abreModal('${nomePet}')"
     >
       Ver informações
     </button>
@@ -63,36 +63,34 @@ function petCard() {
   });
 }
 
-function abreModal() {
-  const nomePet = document.querySelector('input[name="Texto"]').value;
-  const localizacao = document.querySelector('input[name="Local"]').value;
-  const hidden = document.querySelector('.hidden')
+function abreModal(pet) {
+  const divPet = document.getElementsByClassName(`${pet}`)
+  console.log(divPet)
 
-  console.log('abre')
-  hidden.classList.remove('hidden')
-  hidden.classList.add('modal')
-  hidden.innerHTML = `
-  <div class="modal-content">
-  <div class="modal-header">
-    <h5 class="modal-title" id="${nomePet}">
-      ${nomePet}
-    </h5>
-    <button class="close-modal" onclick="fecharModal()">X</button>
-  </div>
-  <div class="modal-body">
-    <p>${localizacao}</p>
-    <img src="${uploaded_image}"/>
-  </div>
-  <div class="modal-footer">
-    <button
-      type="button"
-      class="close-modal"
-      onclick="fecharModal()"
-    >
-      Fechar
-    </button>
-  </div>
-</div>`
+  divPet.classList.remove('hidden')
+  divPet.classList.add('modal')
+  divPet.innerHTML = `
+    <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="${pet}">
+        ${pet}
+      </h5>
+      <button class="close-modal" onclick="fecharModal()">X</button>
+    </div>
+    <div class="modal-body">
+      <p>${localizacao}</p>
+      <img src="${uploaded_image}"/>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="close-modal"
+        onclick="fecharModal()"
+      >
+        Fechar
+      </button>
+    </div>
+  </div>`
   return info
 }
 
