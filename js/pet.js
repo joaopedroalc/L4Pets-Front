@@ -17,11 +17,14 @@ function exibirPets() {
         let card = ` 
         <div class="card">
         <img src="${obj.IdentificationImage_PetLost}" />
-        <h2>${obj.DescriptionPet_PetLost}</h2>
+        <h2>${obj.Name_User}</h2>
+        <p>${obj.DescriptionPet_PetLost}</p>
         <p>Localização: ${obj.Location_PetLost}</p>
         <p>Valor de Recompensa: ${obj.Reword_PetLost}</p>
         <p>Data de registro do Pet: ${obj.DateRegistered_PetLost}</p>
       </div>`
+
+        console.log(obj.IdentificationImage_PetLost)
 
         const cards = document.querySelector('.cards')
         cards.innerHTML += card

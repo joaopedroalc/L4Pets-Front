@@ -101,8 +101,6 @@ function login() {
         last_login: date.toISOString(),
       }
 
-      console.log(user_data)
-
       // Push to Firebase Database
       database_ref.child('users/' + user.uid).update(user_data)
 

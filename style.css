@@ -10,6 +10,11 @@
   --branco: #fff;
 }
 
+.cadastrarPet {
+  display: none;
+  visibility: hidden;
+}
+
 .app {
   width: 100%;
   display: flex;
@@ -66,20 +71,24 @@ nav li {
   color: #fff;
 }
 
+html {
+  background-color: var(--cinza);
+}
+
 .cards {
   width: 80vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  flex-wrap: wrap;
+  gap: 2rem;
   margin: 2rem 0;
 }
 
 .card {
   background-color: var(--verdeMuitoFraco);
-  width: 100%;
+  width: 30%;
   border-radius: 1em;
-  position: relative;
 }
 
 .card img {
@@ -172,21 +181,11 @@ nav li {
   border-radius: 5px;
 }
 
-.nomePet {
-  font-size: 30px;
-  background-color: var(--verdeFraco);
-  position: absolute;
-  bottom: 20%;
-  left: 35%;
-  padding: 10px 16px;
-  border-radius: 10px;
-  color: var(--branco);
-}
-
 #LoginScreen {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: row;
   gap: 10px;
 }
 
@@ -262,4 +261,15 @@ nav li {
   border-radius: 5px;
   font-size: 20px;
   padding: 8px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+}
+footer span {
+  font-weight: bold;
+  display: block;
+  font-size: 18px;
+  padding: 2rem;
 }
