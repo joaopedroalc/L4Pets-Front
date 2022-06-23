@@ -257,3 +257,7 @@ nav li {
   height: 300px;
   object-fit: cover;
 }
+
+.lixeira {
+  width: 60px;
+}
