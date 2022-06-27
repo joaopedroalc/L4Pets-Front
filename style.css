@@ -66,27 +66,6 @@ nav li {
   color: #fff;
 }
 
-.cards {
-  width: 80vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  margin: 2rem 0;
-}
-
-.card {
-  background-color: var(--verdeMuitoFraco);
-  width: 100%;
-  border-radius: 1em;
-  position: relative;
-}
-
-.card img {
-  width: 100%;
-  object-fit: cover;
-}
-
 .btn-modal {
   background-color: var(--verdeForte);
   color: var(--branco);
@@ -183,6 +162,13 @@ nav li {
   color: var(--branco);
 }
 
+#LoginScreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
 #login {
   display: flex;
   align-items: center;
@@ -200,6 +186,16 @@ nav li {
   height: 24px;
   object-fit: cover;
   margin-left: 10px;
+}
+
+#register {
+  wight: 100%;
+  background-color: #fff;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+  padding: 8px;
+  color: #000;
 }
 
 #userDetails {
@@ -245,4 +241,23 @@ nav li {
   border-radius: 5px;
   font-size: 20px;
   padding: 8px;
+}
+
+.cards {
+  width: 80vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin: 2rem 0;
+}
+
+.img-card {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.lixeira {
+  width: 60px;
 }

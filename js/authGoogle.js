@@ -3,6 +3,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyC0fhvvy2_hccvrVB-vOtuBcjor9EjKbYo",
   authDomain: "l4pets.firebaseapp.com",
   projectId: "l4pets",
+  databaseURL: "https://l4pets-default-rtdb.firebaseio.com",
   storageBucket: "l4pets.appspot.com",
   messagingSenderId: "484489501549",
   appId: "1:484489501549:web:3ec7a9321b61c24b775864",
@@ -10,6 +11,8 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const database = firebase.database();
 
 document.getElementById('dashboard').style.display = "none"
 
@@ -20,7 +23,22 @@ let provider = new firebase.auth.GoogleAuthProvider()
 
 function GoogleLogin() {
   firebase.auth().signInWithPopup(provider).then(res => {
-    console.log(res.user)
+    let user = auth.currentUser
+    console.log(user)
+
+    let database_ref = database.ref()
+
+    let date = new Date();
+
+    // Create User data
+    const user_data = {
+      email: user.email,
+      full_name: user.displayName,
+      last_login: date.toISOString()
+    }
+
+    database_ref.child('users/' + user.uid).set(user_data)
+
     document.getElementById('LoginScreen').style.display = "none"
     document.getElementById('dashboard').style.display = "block"
     showUserDetails(res.user)
@@ -59,7 +77,9 @@ function checkAuthState() {
       // ...
       document.getElementById('LoginScreen').style.display = "none"
       document.getElementById('dashboard').style.display = "block"
-      showUserDetails(user)
+      if (user.GoogleLogin) {
+        showUserDetails(user)
+      }
     } else {
       botaoRegistrarPet.style.display = "none";
       botaoRegistrarPet.style.visibility = "hidden";

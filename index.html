@@ -31,13 +31,17 @@
 
         <div id="LoginScreen">
           <button id="login">
-            Login with Google
+            Login com Google
             <img
               src="/assets/google.png"
               class="google-icon"
               alt="google-icon"
             />
           </button>
+
+          <a href="/pages/Cadastrar/index.html">
+            <button id="register">Cadastre-se</button>
+          </a>
         </div>
 
         <div id="dashboard">
@@ -53,9 +57,10 @@
 
         <div class="cadastraPet">
           <form
-            action="https://formsubmit.co/joaopedro.ufma@gmail.com"
+            action=""
             method="POST"
             enctype="multipart/form-data"
+            class="form"
           >
             <input
               name="Texto"
@@ -69,74 +74,43 @@
               placeholder="Localizacao"
               required
             />
+            <textarea
+              name="description"
+              required
+              placeholder="Description"
+              class="description"
+            ></textarea>
             <input
               required
               type="file"
               id="image-input"
-              name="Imagem Abaixo em PDF"
+              name="Imagem"
               accept="image/png, image/jpeg"
             />
 
-            <div id="display-image"></div>
+            <img src="#" class="img" />
             <button type="submit" class="anunciar" onclick="salvarDadosPet()">
               Anunciar
             </button>
           </form>
         </div>
 
-        <div class="cards">
-          <div class="card">
-            <img src="/assets/dog1.png" alt="dog" />
-            <h2 class="nomePet">Carlos</h2>
-            <button
-              type="button"
-              class="btn-modal"
-              onclick="abrirModal(primeiroModal)"
-            >
-              Ver informações
-            </button>
-            <div class="primeiroModal hidden"></div>
-          </div>
-          <div class="card">
-            <img src="/assets/dog2.png" alt="dog" />
-
-            <h2 class="nomePet">Jack</h2>
-
-            <button
-              type="button"
-              class="btn-modal"
-              onclick="abrirModal(segundoModal)"
-            >
-              Ver informações
-            </button>
-            <div class="segundoModal hidden"></div>
-          </div>
-          <div class="card">
-            <img src="/assets/dog3.png" alt="dog" />
-
-            <h2 class="nomePet">Drico</h2>
-
-            <button
-              type="button"
-              class="btn-modal"
-              onclick="abrirModal(terceiroModal)"
-            >
-              Ver informações
-            </button>
-            <div class="terceiroModal hidden"></div>
-          </div>
-        </div>
+        <div class="cards"></div>
       </main>
 
       <footer id="footer"></footer>
     </div>
 
-    <!-- FIREBASE -->
-    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
 
-    <script src="/js/auth.js"></script>
-    <script src="/js/modal.js"></script>
-    <script src="/js/pet.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+    <script src="/js/authGoogle.js"></script>
+    <script src="/js/salvarDadosFirestore.js"></script>
   </body>
 </html>
