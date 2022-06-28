@@ -7,6 +7,8 @@
     <title>L4PETS</title>
     <link rel="stylesheet" href="/reset.css" />
     <link rel="stylesheet" href="/style.css" />
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="app">
@@ -52,46 +54,43 @@
 
       <main id="main">
         <div class="botaoRegistrarPet">
-          <button onclick="cadastrarPet()">Cadastrar pet</button>
+          <button>Cadastrar pet</button>
         </div>
 
         <div class="cadastraPet">
-          <form
-            action=""
-            method="POST"
-            enctype="multipart/form-data"
-            class="form"
-          >
+          <form method="POST" enctype="multipart/form-data" class="form">
             <input
-              name="Texto"
               type="text"
-              placeholder="Nome do pet"
+              name="DescriptionPet_PetLost"
+              placeholder="Descrição do PET"
               required
+              class="DescriptionPet_PetLost"
             />
             <input
-              name="Local"
+              name="Location_PetLost"
+              class="Location_PetLost"
               type="text"
               placeholder="Localizacao"
               required
             />
-            <textarea
-              name="description"
+            <input
+              type="text"
               required
-              placeholder="Description"
-              class="description"
-            ></textarea>
+              placeholder="Recompensa"
+              class="Reword_PetLost"
+              name="Reword_PetLost"
+            />
+
             <input
               required
               type="file"
-              id="image-input"
-              name="Imagem"
-              accept="image/png, image/jpeg"
+              name="IdentificationImage_PetLost"
+              class="IdentificationImage_PetLost"
+              accept="image/png, image/jpeg, image/jpg"
             />
 
-            <img src="#" class="img" />
-            <button type="submit" class="anunciar" onclick="salvarDadosPet()">
-              Anunciar
-            </button>
+            <div id="display-image"></div>
+            <button type="submit">Anunciar</button>
           </form>
         </div>
 
@@ -111,6 +110,6 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
 
     <script src="/js/authGoogle.js"></script>
-    <script src="/js/salvarDadosFirestore.js"></script>
+    <script src="/js/PetLost.js"></script>
   </body>
 </html>
