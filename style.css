@@ -213,7 +213,8 @@ nav li {
   object-fit: cover;
 }
 
-#display-image {
+#display-image-lost,
+#display-image-found {
   width: 100%;
   height: 200px;
   border: 1px solid black;

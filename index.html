@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="/style.css" />
     <script src="https://unpkg.com/phosphor-icons"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
     <div class="app">
@@ -53,45 +60,171 @@
       </header>
 
       <main id="main">
-        <div class="botaoRegistrarPet">
-          <button>Cadastrar pet</button>
+        <div id="sintomas">
+          <div class="options">
+            <select class="custom-select custom-sintomas">
+              <option selected>Cadastrar pet</option>
+              <option value="1">Perdido</option>
+              <option value="2">Encontrado</option>
+            </select>
+            <!-- Button trigger modal -->
+            <button
+              type="button"
+              id="testButton"
+              class="btn btn-primary botaoRegistrarPet"
+              data-toggle="modal"
+              data-target=""
+            >
+              Preencha as informações
+            </button>
+          </div>
         </div>
 
-        <div class="cadastraPet">
-          <form method="POST" enctype="multipart/form-data" class="form">
-            <input
-              type="text"
-              name="DescriptionPet_PetLost"
-              placeholder="Descrição do PET"
-              required
-              class="DescriptionPet_PetLost"
-            />
-            <input
-              name="Location_PetLost"
-              class="Location_PetLost"
-              type="text"
-              placeholder="Localizacao"
-              required
-            />
-            <input
-              type="text"
-              required
-              placeholder="Recompensa"
-              class="Reword_PetLost"
-              name="Reword_PetLost"
-            />
+        <!-- Modal 1-->
+        <div
+          class="modal fade"
+          id="modal1"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="firstModal"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="firstModal">
+                  Preencha as informações do Pet Perdido
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form
+                  method="POST"
+                  enctype="multipart/form-data"
+                  class="form cadastraPetLost"
+                >
+                  <input
+                    type="text"
+                    name="DescriptionPet_PetLost"
+                    placeholder="Descrição do PET"
+                    required
+                    class="DescriptionPet_PetLost"
+                  />
+                  <input
+                    name="Location_PetLost"
+                    class="Location_PetLost"
+                    type="text"
+                    placeholder="Localizacao"
+                    required
+                  />
+                  <input
+                    type="text"
+                    required
+                    placeholder="Recompensa"
+                    class="Reword_PetLost"
+                    name="Reword_PetLost"
+                  />
 
-            <input
-              required
-              type="file"
-              name="IdentificationImage_PetLost"
-              class="IdentificationImage_PetLost"
-              accept="image/png, image/jpeg, image/jpg"
-            />
+                  <input
+                    required
+                    type="file"
+                    name="IdentificationImage_PetLost"
+                    class="IdentificationImage_PetLost"
+                    accept="image/png, image/jpeg, image/jpg"
+                  />
 
-            <div id="display-image"></div>
-            <button type="submit">Anunciar</button>
-          </form>
+                  <div id="display-image-lost"></div>
+                  <button type="submit">Anunciar</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Fechar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal 2-->
+        <div
+          class="modal fade"
+          id="modal2"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="secondModal"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="secondModal">
+                  Preencha as informações do Pet Encontrado
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form
+                  method="POST"
+                  enctype="multipart/form-data"
+                  class="form cadastraPetFound"
+                >
+                  <input
+                    type="text"
+                    name="DescriptionPet_PetFound"
+                    placeholder="Descrição do PET"
+                    required
+                    class="DescriptionPet_PetFound"
+                  />
+                  <input
+                    name="Location_PetFound"
+                    class="Location_PetFound"
+                    type="text"
+                    placeholder="Localizacao"
+                    required
+                  />
+
+                  <input
+                    required
+                    type="file"
+                    name="IdentificationImage_PetFound"
+                    class="IdentificationImage_PetFound"
+                    accept="image/png, image/jpeg, image/jpg"
+                  />
+
+                  <div id="display-image-found"></div>
+                  <button type="submit">Anunciar</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Fechar
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="cards"></div>
@@ -111,5 +244,17 @@
 
     <script src="/js/authGoogle.js"></script>
     <script src="/js/PetLost.js"></script>
+    <script src="/js/PetFound.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("select").change(function () {
+          $('[id^="modal"]').modal("hide");
+
+          var targetBotao = "#modal" + $(this).val();
+
+          $("#testButton").attr("data-target", targetBotao);
+        });
+      });
+    </script>
   </body>
 </html>
