@@ -1,31 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>L4PETS</title>
-  <link rel="stylesheet" href="/reset.css">
-  <link rel="stylesheet" href="/style.css">
-</head>
-<body>
-  <div class="app">
-    <div id="header">
-      <a href="/index.html">
-        <img src="/assets/logo.png" alt="l4pets">
-      </a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L4PETS</title>
+    <link rel="stylesheet" href="/reset.css" />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
 
-      <nav>
-        <ul>
-          <a href="/index.html">
-            <li>Home</li>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="app">
+      <header id="header">
+        <a href="/index.html">
+          <div class="logo">
+            <img src="/assets/logo.png" alt="l4pets" />
+            <h1 class="title">L<span class="number">4</span>PETS</h1>
+          </div>
+        </a>
+
+        <nav>
+          <ul>
+            <a href="/index.html">
+              <li>Home</li>
+            </a>
+            <a href="/pages/Pets/index.html">
+              <li>Pets</li>
+            </a>
+          </ul>
+        </nav>
+
+        <div id="LoginScreen">
+          <button id="login">
+            Login com Google
+            <img
+              src="/assets/google.png"
+              class="google-icon"
+              alt="google-icon"
+            />
+          </button>
+
+          <a href="/pages/Cadastrar/index.html">
+            <button id="register">Cadastre-se</button>
           </a>
-          <a href="/pages/Pets/index.html">
-            <li>Pets</li>
-          </a>
-        </ul>
-      </nav>
+        </div>
+
+        <div id="dashboard">
+          <div id="userDetails"></div>
+          <button id="logout">Logout</button>
+        </div>
+      </header>
+
+      <main id="main">
+        <div id="sintomas">
+          <div class="options">
+            <h1>Clique no botão para escolher o seu cadastro</h1>
+            <select class="custom-select custom-sintomas">
+              <option value="0" selected style="display: none">
+                Selecione uma opção
+              </option>
+              <option value="1">Perdeu seu pet? Clique Abaixo</option>
+              <option value="2">Encontrou seu pet? Clique Abaixo</option>
+            </select>
+            <!-- Button trigger modal -->
+            <button
+              type="button"
+              id="testButton"
+              class="btn btn-primary botaoRegistrarPet"
+              data-toggle="modal"
+              data-target=""
+            >
+              Preencha as informações
+            </button>
+          </div>
+        </div>
+
+        <!-- Modal 1-->
+        <div
+          class="modal fade"
+          id="modal1"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="firstModal"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="firstModal">
+                  Preencha as informações do Pet Perdido
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form
+                  method="POST"
+                  enctype="multipart/form-data"
+                  class="form cadastraPetLost"
+                >
+                  <input
+                    type="text"
+                    name="DescriptionPet_PetLost"
+                    placeholder="Descrição do PET"
+                    required
+                    class="DescriptionPet_PetLost"
+                  />
+                  <input
+                    name="Location_PetLost"
+                    class="Location_PetLost"
+                    type="text"
+                    placeholder="Localizacao"
+                    required
+                  />
+                  <input
+                    type="text"
+                    required
+                    placeholder="Recompensa R$"
+                    class="Reword_PetLost"
+                    name="Reword_PetLost"
+                  />
+
+                  <input
+                    required
+                    type="file"
+                    name="IdentificationImage_PetLost"
+                    class="IdentificationImage_PetLost"
+                    accept="image/png, image/jpeg, image/jpg"
+                  />
+
+                  <div id="display-image-lost"></div>
+                  <button type="submit">Anunciar</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Fechar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal 2-->
+        <div
+          class="modal fade"
+          id="modal2"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="secondModal"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="secondModal">
+                  Preencha as informações do Pet Encontrado
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form
+                  method="POST"
+                  enctype="multipart/form-data"
+                  class="form cadastraPetFound"
+                >
+                  <input
+                    type="text"
+                    name="DescriptionPet_PetFound"
+                    placeholder="Descrição do PET"
+                    required
+                    class="DescriptionPet_PetFound"
+                  />
+                  <input
+                    name="Location_PetFound"
+                    class="Location_PetFound"
+                    type="text"
+                    placeholder="Localizacao"
+                    required
+                  />
+
+                  <input
+                    required
+                    type="file"
+                    name="IdentificationImage_PetFound"
+                    class="IdentificationImage_PetFound"
+                    accept="image/png, image/jpeg, image/jpg"
+                  />
+
+                  <div id="display-image-found"></div>
+                  <button type="submit">Anunciar</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Fechar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cards"></div>
+      </main>
+
+      <footer id="footer"></footer>
     </div>
-  </div>
-</body>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+    <script src="/js/authGoogle.js"></script>
+    <script src="/js/PetLost.js"></script>
+    <script src="/js/PetFound.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("select").change(function () {
+          $('[id^="modal"]').modal("hide");
+
+          var targetBotao = "#modal" + $(this).val();
+
+          $("#testButton").attr("data-target", targetBotao);
+        });
+      });
+    </script>
+  </body>
 </html>
