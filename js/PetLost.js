@@ -108,9 +108,3 @@ function deletarDadosLost(idPet) {
 }
 
 pegaApiLost()
-
-// function verificaCardVazio() {
-
-// }
-
-// verificaCardVazio()

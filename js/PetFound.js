@@ -9,14 +9,27 @@ function pegaApiFound() {
         console.log(obj.IdentificationImage_PetFound)
         let card = ` 
         <div class="card">
-          <i class="ph-pencil" style="font-size:40px;" onclick="atualizaDadosFound(${obj.Id_PetFound})"></i>
           <div style='background-image: ${obj.IdentificationImage_PetFound}' class="card-image"></div>
           <h2 class="${obj.DescriptionPet_PetFound}">Descrição do Pet Encontrado: ${obj.DescriptionPet_PetFound}</h2>
           <p>Localização do Pet: ${obj.Location_PetFound}</p>
-          <i class="ph-trash" style="font-size:40px;" onclick="deletarDadosFound(${obj.Id_PetFound})"></i>
+          <div class="icons-container">
+            <i class="ph-trash" style="font-size:40px;" onclick="deletarDadosLost(${obj.Id_PetFound})"></i>
+            <i class="ph-pencil" style="font-size:40px;" onclick="atualizaDadosLost(${obj.Id_PetFound})"></i>
+          </div>
       </div>`
         const cards = document.querySelector('.cards')
         cards.innerHTML += card
+
+        const cardImages = document.querySelectorAll('.card-image');
+        console.log(cardImages)
+        cardImages.forEach(card => {
+          console.log(card)
+          if (card.style.backgroundImage === "") {
+            const container = card.parentElement
+            container.style.display = "none";
+            container.style.visibility = "hidden";
+          }
+        })
 
       })
       console.log(response.data);
@@ -78,6 +91,7 @@ function atualizaDadosFound(idPet) {
   axios.put(`${apiFound}/update/${idPet}`, atualizandoUser).then(response => {
     const data = response.data;
     console.log(data)
+    pegaApiFound()
   }).catch(e => console.log(e))
 }
 
