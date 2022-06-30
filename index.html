@@ -62,10 +62,13 @@
       <main id="main">
         <div id="sintomas">
           <div class="options">
+            <h1>Clique no botão para escolher o seu cadastro</h1>
             <select class="custom-select custom-sintomas">
-              <option selected>Cadastrar pet</option>
-              <option value="1">Perdido</option>
-              <option value="2">Encontrado</option>
+              <option value="0" selected style="display: none">
+                Selecione uma opção
+              </option>
+              <option value="1">Perdeu seu pet? Clique Abaixo</option>
+              <option value="2">Encontrou seu pet? Clique Abaixo</option>
             </select>
             <!-- Button trigger modal -->
             <button
@@ -127,7 +130,7 @@
                   <input
                     type="text"
                     required
-                    placeholder="Recompensa"
+                    placeholder="Recompensa R$"
                     class="Reword_PetLost"
                     name="Reword_PetLost"
                   />

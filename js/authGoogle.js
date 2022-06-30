@@ -64,13 +64,15 @@ function exibirInfosUser() {
 
 const botaoRegistrarPet = document.querySelector(".botaoRegistrarPet");
 const infosPet = document.querySelector(".cadastraPet")
+const customSelect = document.querySelector('.custom-select')
 
 function checkAuthState() {
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
       botaoRegistrarPet.style.display = "block";
       botaoRegistrarPet.style.visibility = "visible";
-
+      customSelect.style.display = "block";
+      customSelect.style.visibility = "visible";
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
       // var uid = user.uid;
@@ -83,6 +85,8 @@ function checkAuthState() {
     } else {
       botaoRegistrarPet.style.display = "none";
       botaoRegistrarPet.style.visibility = "hidden";
+      customSelect.style.display = "none";
+      customSelect.style.visibility = "hidden";
       infosPet.style.display = 'none';
       infosPet.style.visibility = 'hidden';
     }
@@ -93,6 +97,8 @@ function LogoutUser() {
   firebase.auth().signOut().then(() => {
     botaoRegistrarPet.style.display = "none";
     botaoRegistrarPet.style.visibility = "hidden";
+    customSelect.style.display = "none";
+    customSelect.style.visibility = "hidden";
     infosPet.style.display = 'none';
     infosPet.style.visibility = 'hidden';
     document.getElementById('LoginScreen').style.display = "block"
