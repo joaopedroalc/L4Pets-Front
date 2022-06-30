@@ -13,8 +13,8 @@ function pegaApiFound() {
           <h2 class="${obj.DescriptionPet_PetFound}">Descrição do Pet Encontrado: ${obj.DescriptionPet_PetFound}</h2>
           <p>Localização do Pet: ${obj.Location_PetFound}</p>
           <div class="icons-container">
-            <i class="ph-trash" style="font-size:40px;" onclick="deletarDadosLost(${obj.Id_PetFound})"></i>
-            <i class="ph-pencil" style="font-size:40px;" onclick="atualizaDadosLost(${obj.Id_PetFound})"></i>
+            <i class="ph-trash" style="font-size:40px;" onclick="deletarDadosFound(${obj.Id_PetFound})"></i>
+            <i class="ph-pencil" style="font-size:40px;" onclick="atualizaDadosFound(${obj.Id_PetFound})"></i>
           </div>
       </div>`
         const cards = document.querySelector('.cards')
