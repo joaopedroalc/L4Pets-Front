@@ -213,7 +213,8 @@ nav li {
   object-fit: cover;
 }
 
-#display-image {
+#display-image-lost,
+#display-image-found {
   width: 100%;
   height: 200px;
   border: 1px solid black;
@@ -244,12 +245,30 @@ nav li {
 }
 
 .cards {
-  width: 80vw;
+  width: 95vw;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 3rem;
   margin: 2rem 0;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #36802d;
+  color: #fff;
+  border-radius: 5%;
+  padding: 0.5rem 1rem;
+}
+
+.icons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .img-card {
@@ -260,4 +279,13 @@ nav li {
 
 .lixeira {
   width: 60px;
+}
+
+.card-image {
+  //AJUSTAR O CSS DAS IMAGENS
+  display: block;
+  width: 300px;
+  height: 300px;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
