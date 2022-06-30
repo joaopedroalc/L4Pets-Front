@@ -245,12 +245,30 @@ nav li {
 }
 
 .cards {
-  width: 80vw;
+  width: 95vw;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 3rem;
   margin: 2rem 0;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #36802d;
+  color: #fff;
+  border-radius: 5%;
+  padding: 0.5rem 1rem;
+}
+
+.icons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .img-card {

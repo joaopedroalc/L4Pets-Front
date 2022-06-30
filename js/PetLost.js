@@ -9,13 +9,15 @@ function pegaApiLost() {
         console.log(obj.IdentificationImage_PetLost)
         let card = ` 
         <div class="card">
-          <i class="ph-pencil" style="font-size:40px;" onclick="atualizaDadosLost(${obj.Id_PetLost})"></i>
           <div style='background-image: ${obj.IdentificationImage_PetLost}' class="card-image"></div>
           <h2 class="${obj.DescriptionPet_PetLost}">Descrição do Pet Perdido: ${obj.DescriptionPet_PetLost}</h2>
           <p>Localização do Pet: ${obj.Location_PetLost}</p>
           <p>Valor de recompensa do Pet: ${obj.Reword_PetLost}</p>
-          <i class="ph-trash" style="font-size:40px;" onclick="deletarDadosLost(${obj.Id_PetLost})"></i>
-      </div>`
+          <div class="icons-container">
+            <i class="ph-trash" style="font-size:40px;" onclick="deletarDadosLost(${obj.Id_PetLost})"></i>
+            <i class="ph-pencil" style="font-size:40px;" onclick="atualizaDadosLost(${obj.Id_PetLost})"></i>
+          </div>
+          </div>`
         const cards = document.querySelector('.cards')
         cards.innerHTML += card
 
