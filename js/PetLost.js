@@ -21,6 +21,17 @@ function pegaApiLost() {
         const cards = document.querySelector('.cards')
         cards.innerHTML += card
 
+        const cardImages = document.querySelectorAll('.card-image');
+        console.log(cardImages)
+        cardImages.forEach(card => {
+          console.log(card)
+          if (card.style.backgroundImage === "") {
+            const container = card.parentElement
+            container.style.display = "none";
+            container.style.visibility = "hidden";
+          }
+        })
+
       })
       console.log(response.data);
     })
@@ -85,6 +96,7 @@ function atualizaDadosLost(idPet) {
   axios.put(`${apiLost}/update/${idPet}`, atualizandoUser).then(response => {
     const data = response.data;
     console.log(data)
+    pegaApiLost()
   }).catch(e => console.log(e))
 }
 
@@ -96,3 +108,9 @@ function deletarDadosLost(idPet) {
 }
 
 pegaApiLost()
+
+// function verificaCardVazio() {
+
+// }
+
+// verificaCardVazio()
