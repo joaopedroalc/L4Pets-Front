@@ -21,10 +21,13 @@ document.getElementById('logout').addEventListener('click', LogoutUser)
 
 let provider = new firebase.auth.GoogleAuthProvider()
 
+const apiUsers = "http://localhost:8089/Users"
+
 function GoogleLogin() {
   firebase.auth().signInWithPopup(provider).then(res => {
+
     let user = auth.currentUser
-    console.log(user)
+    // console.log(user)
 
     let database_ref = database.ref()
 
@@ -37,7 +40,21 @@ function GoogleLogin() {
       last_login: date.toISOString()
     }
 
+    const usersData = {
+      "email": `${user.email}`,
+      "full_name": `${user.displayName}`,
+      "last_login": `${date.toISOString()}`
+    }
+
+    // JOGA PRO FIREBASE
     database_ref.child('users/' + user.uid).set(user_data)
+
+    // JOGA PRO MYSQL
+    axios.post(`${apiUsers}/insert`, usersData).then(response => {
+      const data = response.data;
+      // console.log(data)
+      window.location.reload()
+    }).catch(e => console.log(e))
 
     document.getElementById('LoginScreen').style.display = "none"
     document.getElementById('dashboard').style.display = "block"
@@ -51,8 +68,21 @@ function showUserDetails(user) {
   document.getElementById('userDetails').innerHTML = `
         <img src="${user.photoURL}" class="userPhoto" onclick="exibirInfosUser()">
         <p class="name">Nome: ${user.displayName}</p>
-        <p class="email">Email: ${user.email}</p>
+        <p class="email">${user.email}</p>
       `
+  const emailCardAll = document.querySelectorAll('.email-card')
+  const email = document.querySelector(".email")
+
+  emailCardAll.forEach(emailCard => {
+    const divCard = emailCard.parentElement
+    const iconsContainer = divCard.querySelector(".icons-container")
+
+    if (emailCard.innerHTML !== email.innerHTML) {
+      console.log('email')
+      iconsContainer.style.display = 'none'
+    }
+  })
+
 }
 
 function exibirInfosUser() {
@@ -66,9 +96,23 @@ const botaoRegistrarPet = document.querySelector(".botaoRegistrarPet");
 const infosPet = document.querySelector(".cadastraPet")
 const customSelect = document.querySelector('.custom-select')
 
+
 function checkAuthState() {
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
+      // console.log(user.email)
+      const emailUserLogadoLost = document.querySelector('.emailUserLogadoLost')
+      emailUserLogadoLost.value = user.email;
+      emailUserLogadoLost.disabled = true;
+      emailUserLogadoLost.style.opacity = 0.7;
+      emailUserLogadoLost.style.cursor = "not-allowed"
+
+      const emailUserLogadoFound = document.querySelector('.emailUserLogadoFound')
+      emailUserLogadoFound.value = user.email;
+      emailUserLogadoFound.disabled = true;
+      emailUserLogadoFound.style.opacity = 0.7;
+      emailUserLogadoFound.style.cursor = "not-allowed"
+
       botaoRegistrarPet.style.display = "block";
       botaoRegistrarPet.style.visibility = "visible";
       customSelect.style.display = "block";
@@ -77,12 +121,38 @@ function checkAuthState() {
       // https://firebase.google.com/docs/reference/js/firebase.User
       // var uid = user.uid;
       // ...
+
+      axios.get(apiUsers)
+        .then(response => {
+          response.data.map(obj => {
+            console.log(obj)
+            // if (obj.email === user.email) {
+            //   phTrash.style.display = 'none';
+            //   phPencil.style.display = 'none';
+            // }
+          })
+        })
+        .catch(error => console.log(error))
+
+      showUserDetails(user)
+
       document.getElementById('LoginScreen').style.display = "none"
       document.getElementById('dashboard').style.display = "block"
-      if (user.GoogleLogin) {
-        showUserDetails(user)
-      }
+      // if (user.GoogleLogin) {
+      //   showUserDetails(user)
+      // }
     } else {
+      const phTrash = document.querySelectorAll('.ph-trash');
+      const phPencil = document.querySelectorAll('.ph-pencil');
+
+      phTrash.forEach(trash => {
+        trash.style.display = 'none';
+      })
+
+      phPencil.forEach(pencil => {
+        pencil.style.display = 'none';
+      })
+
       botaoRegistrarPet.style.display = "none";
       botaoRegistrarPet.style.visibility = "hidden";
       customSelect.style.display = "none";
@@ -95,6 +165,16 @@ function checkAuthState() {
 
 function LogoutUser() {
   firebase.auth().signOut().then(() => {
+    const phTrash = document.querySelectorAll('.ph-trash');
+    const phPencil = document.querySelectorAll('.ph-pencil');
+
+    phTrash.forEach(trash => {
+      trash.style.display = 'none';
+    })
+
+    phPencil.forEach(pencil => {
+      pencil.style.display = 'none';
+    })
     botaoRegistrarPet.style.display = "none";
     botaoRegistrarPet.style.visibility = "hidden";
     customSelect.style.display = "none";
