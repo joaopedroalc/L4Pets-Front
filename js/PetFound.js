@@ -10,7 +10,8 @@ function pegaApiFound() {
         let card = ` 
         <div class="card">
           <div style='background-image: ${obj.IdentificationImage_PetFound}' class="card-image"></div>
-          <h2 class="${obj.DescriptionPet_PetFound}">Descrição do Pet Encontrado: ${obj.DescriptionPet_PetFound}</h2>
+          <p class="email-card" style="display: none;">${obj.email}</p>
+          <p class="${obj.DescriptionPet_PetFound}">Descrição do Pet Encontrado: ${obj.DescriptionPet_PetFound}</p>
           <p>Localização do Pet: ${obj.Location_PetFound}</p>
           <div class="icons-container">
             <i class="ph-trash" style="font-size:40px;" onclick="deletarDadosFound(${obj.Id_PetFound})"></i>
@@ -55,6 +56,7 @@ botaoRegistrarPet.addEventListener("click", () => {
 
 formFound.addEventListener("submit", (e) => {
   e.preventDefault();
+  const email = document.querySelector(".emailUserLogadoFound")
   const DescriptionPet_PetFound = document.querySelector('.DescriptionPet_PetFound');
   const Location_PetFound = document.querySelector('.Location_PetFound');
   const IdentificationImage_PetFound = document.querySelector("#display-image-found").style.backgroundImage;
@@ -62,6 +64,7 @@ formFound.addEventListener("submit", (e) => {
   console.log(IdentificationImage_PetFound)
 
   const novoPet = {
+    email: email.value,
     DescriptionPet_PetFound: DescriptionPet_PetFound.value,
     Location_PetFound: Location_PetFound.value,
     IdentificationImage_PetFound: IdentificationImage_PetFound,
@@ -77,11 +80,13 @@ formFound.addEventListener("submit", (e) => {
 
 function atualizaDadosFound(idPet) {
   alert("Preencha o formulário para atualizar os dados")
+  const email = document.querySelector(".emailUserLogadoFound")
   const DescriptionPet_PetFound = document.querySelector('.DescriptionPet_PetFound');
   const Location_PetFound = document.querySelector('.Location_PetFound');
   const IdentificationImage_PetFound = document.querySelector("#display-image-found").style.backgroundImage;
 
   const atualizandoUser = {
+    "email": `${email.value}`,
     "DescriptionPet_PetFound": `${DescriptionPet_PetFound.value}`,
     "Location_PetFound": `${Location_PetFound.value}`,
     "IdentificationImage_PetFound": `${IdentificationImage_PetFound}`,

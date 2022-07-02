@@ -2,15 +2,17 @@ const formLost = document.querySelector('.cadastraPetLost');
 
 const apiLost = "http://localhost:8089/PetLost"
 
+
 function pegaApiLost() {
   axios.get(apiLost)
     .then(response => {
       response.data.map(obj => {
-        console.log(obj.IdentificationImage_PetLost)
+        console.log(obj.Id_PetLost)
         let card = ` 
         <div class="card">
           <div style='background-image: ${obj.IdentificationImage_PetLost}' class="card-image"></div>
-          <h2 class="${obj.DescriptionPet_PetLost}">Descrição do Pet Perdido: ${obj.DescriptionPet_PetLost}</h2>
+          <p class="email-card" style="display: none;">${obj.email}</p>
+          <p class="${obj.DescriptionPet_PetLost}">Descrição do Pet Perdido: ${obj.DescriptionPet_PetLost}</p>
           <p>Localização do Pet: ${obj.Location_PetLost}</p>
           <p>Valor de recompensa do Pet: ${obj.Reword_PetLost}</p>
           <div class="icons-container">
@@ -22,9 +24,9 @@ function pegaApiLost() {
         cards.innerHTML += card
 
         const cardImages = document.querySelectorAll('.card-image');
-        console.log(cardImages)
+        // console.log(cardImages)
         cardImages.forEach(card => {
-          console.log(card)
+          // console.log(card)
           if (card.style.backgroundImage === "") {
             const container = card.parentElement
             container.style.display = "none";
@@ -33,7 +35,7 @@ function pegaApiLost() {
         })
 
       })
-      console.log(response.data);
+      // console.log(response.data);
     })
     .catch(error => console.log(error))
 }
@@ -56,14 +58,16 @@ botaoRegistrarPet.addEventListener("click", () => {
 
 formLost.addEventListener("submit", (e) => {
   e.preventDefault();
+  const email = document.querySelector(".emailUserLogadoLost")
   const DescriptionPet_PetLost = document.querySelector('.DescriptionPet_PetLost');
   const Location_PetLost = document.querySelector('.Location_PetLost');
   const Reword_PetLost = document.querySelector('.Reword_PetLost');
   const IdentificationImage_PetLost = document.querySelector("#display-image-lost").style.backgroundImage;
 
-  console.log(IdentificationImage_PetLost)
+  // console.log(IdentificationImage_PetLost)
 
   const novoPet = {
+    email: email.value,
     DescriptionPet_PetLost: DescriptionPet_PetLost.value,
     Location_PetLost: Location_PetLost.value,
     Reword_PetLost: Reword_PetLost.value,
@@ -71,7 +75,7 @@ formLost.addEventListener("submit", (e) => {
   }
   axios.post(`${apiLost}/insert`, novoPet).then(response => {
     const data = response.data;
-    console.log(data)
+    // console.log(data)
 
     pegaApiLost()
     window.location.reload()
@@ -80,12 +84,14 @@ formLost.addEventListener("submit", (e) => {
 
 function atualizaDadosLost(idPet) {
   alert("Preencha o formulário para atualizar os dados")
+  const email = document.querySelector(".emailUserLogadoLost")
   const DescriptionPet_PetLost = document.querySelector('.DescriptionPet_PetLost');
   const Location_PetLost = document.querySelector('.Location_PetLost');
   const Reword_PetLost = document.querySelector('.Reword_PetLost');
   const IdentificationImage_PetLost = document.querySelector("#display-image-lost").style.backgroundImage;
 
   const atualizandoUser = {
+    "email": `${email.value}`,
     "DescriptionPet_PetLost": `${DescriptionPet_PetLost.value}`,
     "Location_PetLost": `${Location_PetLost.value}`,
     "Reword_PetLost": `${Reword_PetLost.value}`,
@@ -95,7 +101,7 @@ function atualizaDadosLost(idPet) {
   console.log(idPet)
   axios.put(`${apiLost}/update/${idPet}`, atualizandoUser).then(response => {
     const data = response.data;
-    console.log(data)
+    // console.log(data)
     pegaApiLost()
   }).catch(e => console.log(e))
 }
