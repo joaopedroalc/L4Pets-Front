@@ -10,6 +10,11 @@
   --branco: #fff;
 }
 
+.options h1 {
+  display: none;
+  visibility: hidden;
+}
+
 .app {
   width: 100%;
   display: flex;
