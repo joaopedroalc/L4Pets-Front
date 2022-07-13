@@ -26,8 +26,8 @@ function pegaApiLost() {
             <i class="ph-pencil" style="font-size:40px;" onclick="atualizaDadosLost(${obj.Id_PetLost})"></i>
           </div>
           </div>`
-        const cards = document.querySelector('.cards')
-        cards.innerHTML += card
+        const cardsLost = document.querySelector('.cardsLost')
+        cardsLost.innerHTML += card
 
         const cardImages = document.querySelectorAll('.card-image');
         // console.log(cardImages)

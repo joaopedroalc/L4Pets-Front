@@ -24,8 +24,8 @@ function pegaApiFound() {
             <i class="ph-pencil" style="font-size:40px;" onclick="atualizaDadosFound(${obj.Id_PetFound})"></i>
           </div>
       </div>`
-        const cards = document.querySelector('.cards')
-        cards.innerHTML += card
+        const cardsFound = document.querySelector('.cardsFound')
+        cardsFound.innerHTML += card
 
         const cardImages = document.querySelectorAll('.card-image');
         console.log(cardImages)

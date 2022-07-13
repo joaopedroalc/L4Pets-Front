@@ -10,7 +10,8 @@
   margin: 2rem 0;
 }
 
-.card {
+.card_PetsLost .card,
+.card_PetsFound .card {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -22,7 +23,8 @@
   width: 300px;
 }
 
-.card-image {
+.card_PetsLost .card .card-image,
+.card_PetsFound .card .card-image {
   //AJUSTAR O CSS DAS IMAGENS
   display: block;
   width: 300px;
