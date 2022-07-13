@@ -1,5 +1,5 @@
 
-const apiLost = "http://localhost:8089/PetLost"
+const apiLost = "http://localhost:8089/PetLost/Pets"
 
 function pegaApiLost() {
   axios.get(apiLost)
@@ -42,7 +42,7 @@ function pegaApiLost() {
 pegaApiLost()
 
 
-const apiFound = "http://localhost:8089/PetFound"
+const apiFound = "http://localhost:8089/PetFound/Pets"
 
 function pegaApiFound() {
   axios.get(apiFound)
