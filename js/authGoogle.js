@@ -124,6 +124,8 @@ function checkAuthState() {
       // https://firebase.google.com/docs/reference/js/firebase.User
       // var uid = user.uid;
       // ...
+      const obj = JSON.stringify(user);
+      localStorage.setItem('userInfos', obj);
 
       axios.get(apiUsers)
         .then(response => {
