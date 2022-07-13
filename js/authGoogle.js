@@ -95,7 +95,7 @@ function exibirInfosUser() {
 const botaoRegistrarPet = document.querySelector(".botaoRegistrarPet");
 const infosPet = document.querySelector(".cadastraPet")
 const customSelect = document.querySelector('.custom-select')
-const titleOptions = document.querySelector(".options h1");
+const titleSelect = document.querySelector("#selects h1");
 
 
 function checkAuthState() {
@@ -118,8 +118,8 @@ function checkAuthState() {
       botaoRegistrarPet.style.visibility = "visible";
       customSelect.style.display = "block";
       customSelect.style.visibility = "visible";
-      titleOptions.style.display = "block";
-      titleOptions.style.visibility = "visible";
+      titleSelect.style.display = "block";
+      titleSelect.style.visibility = "visible";
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
       // var uid = user.uid;
@@ -160,8 +160,8 @@ function checkAuthState() {
       botaoRegistrarPet.style.visibility = "hidden";
       customSelect.style.display = "none";
       customSelect.style.visibility = "hidden";
-      titleOptions.style.display = "none";
-      titleOptions.style.visibility = "hidden";
+      titleSelect.style.display = "none";
+      titleSelect.style.visibility = "hidden";
       infosPet.style.display = 'none';
       infosPet.style.visibility = 'hidden';
     }
@@ -184,8 +184,8 @@ function LogoutUser() {
     botaoRegistrarPet.style.visibility = "hidden";
     customSelect.style.display = "none";
     customSelect.style.visibility = "hidden";
-    titleOptions.style.display = "none";
-    titleOptions.style.visibility = "hidden";
+    titleSelect.style.display = "none";
+    titleSelect.style.visibility = "hidden";
     infosPet.style.display = 'none';
     infosPet.style.visibility = 'hidden';
     document.getElementById('LoginScreen').style.display = "block"

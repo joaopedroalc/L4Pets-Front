@@ -14,7 +14,13 @@ function pegaApiLost() {
           <p class="email-card" style="display: none;">${obj.email}</p>
           <p class="${obj.DescriptionPet_PetLost}">Descrição do Pet Perdido: ${obj.DescriptionPet_PetLost}</p>
           <p>Localização do Pet: ${obj.Location_PetLost}</p>
-          <p>Valor de recompensa do Pet: ${obj.Reword_PetLost}</p>
+          <p>Valor de recompensa do Pet: R$ ${obj.Reword_PetLost}</p>
+          <div class="phone-container">
+            <p>Telefone para contato: ${obj.Phone_PetLost}</p>
+            <a href="https://wa.me/${obj.Phone_PetLost}">
+              <img src="/assets/wpp.png" alt="wpp" class="wpp" />
+            </a>
+          </div>
           <div class="icons-container">
             <i class="ph-trash" style="font-size:40px;" onclick="deletarDadosLost(${obj.Id_PetLost})"></i>
             <i class="ph-pencil" style="font-size:40px;" onclick="atualizaDadosLost(${obj.Id_PetLost})"></i>
@@ -62,6 +68,7 @@ formLost.addEventListener("submit", (e) => {
   const DescriptionPet_PetLost = document.querySelector('.DescriptionPet_PetLost');
   const Location_PetLost = document.querySelector('.Location_PetLost');
   const Reword_PetLost = document.querySelector('.Reword_PetLost');
+  const Phone_PetLost = document.querySelector('.Phone_PetLost');
   const IdentificationImage_PetLost = document.querySelector("#display-image-lost").style.backgroundImage;
 
   // console.log(IdentificationImage_PetLost)
@@ -71,6 +78,7 @@ formLost.addEventListener("submit", (e) => {
     DescriptionPet_PetLost: DescriptionPet_PetLost.value,
     Location_PetLost: Location_PetLost.value,
     Reword_PetLost: Reword_PetLost.value,
+    Phone_PetLost: Phone_PetLost.value,
     IdentificationImage_PetLost: IdentificationImage_PetLost,
   }
   axios.post(`${apiLost}/insert`, novoPet).then(response => {
@@ -88,6 +96,7 @@ function atualizaDadosLost(idPet) {
   const DescriptionPet_PetLost = document.querySelector('.DescriptionPet_PetLost');
   const Location_PetLost = document.querySelector('.Location_PetLost');
   const Reword_PetLost = document.querySelector('.Reword_PetLost');
+  const Phone_PetLost = document.querySelector('.Phone_PetLost');
   const IdentificationImage_PetLost = document.querySelector("#display-image-lost").style.backgroundImage;
 
   const atualizandoUser = {
@@ -95,6 +104,7 @@ function atualizaDadosLost(idPet) {
     "DescriptionPet_PetLost": `${DescriptionPet_PetLost.value}`,
     "Location_PetLost": `${Location_PetLost.value}`,
     "Reword_PetLost": `${Reword_PetLost.value}`,
+    "Phone_PetLost": `${Phone_PetLost.value}`,
     "IdentificationImage_PetLost": `${IdentificationImage_PetLost}`,
   }
 

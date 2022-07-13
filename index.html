@@ -61,8 +61,8 @@
 
       <main id="main">
         <div id="selects">
+          <h1>Clique no botão para escolher o seu cadastro</h1>
           <div class="options">
-            <h1>Clique no botão para escolher o seu cadastro</h1>
             <select class="custom-select custom-selects">
               <option value="0" selected style="display: none">
                 Selecione uma opção
@@ -74,7 +74,7 @@
             <button
               type="button"
               id="testButton"
-              class="btn btn-primary botaoRegistrarPet"
+              class="btn btn-success botaoRegistrarPet"
               data-toggle="modal"
               data-target=""
             >
@@ -119,28 +119,35 @@
                     class="emailUserLogadoLost"
                     placeholder="Email"
                     required
+                    style="display: none; visibility: hidden"
                   />
 
-                  <input
-                    type="text"
+                  <textarea
                     name="DescriptionPet_PetLost"
                     placeholder="Descrição do PET"
                     required
                     class="DescriptionPet_PetLost"
-                  />
-                  <input
+                  ></textarea>
+                  <textarea
                     name="Location_PetLost"
                     class="Location_PetLost"
-                    type="text"
                     placeholder="Localizacao"
                     required
-                  />
+                  ></textarea>
                   <input
                     type="text"
                     required
                     placeholder="Recompensa R$"
                     class="Reword_PetLost"
                     name="Reword_PetLost"
+                  />
+
+                  <input
+                    required
+                    type="tel"
+                    placeholder="Telefone"
+                    name="Phone_PetLost"
+                    class="Phone_PetLost"
                   />
 
                   <input
@@ -198,26 +205,33 @@
                   enctype="multipart/form-data"
                   class="form cadastraPetFound"
                 >
-                  <input
-                    type="text"
+                  <textarea
                     name="DescriptionPet_PetFound"
                     placeholder="Descrição do PET"
                     required
                     class="DescriptionPet_PetFound"
-                  />
-                  <input
+                  ></textarea>
+                  <textarea
                     name="Location_PetFound"
                     class="Location_PetFound"
-                    type="text"
                     placeholder="Localizacao"
                     required
-                  />
+                  ></textarea>
                   <input
                     type="email"
                     name="email"
                     class="emailUserLogadoFound"
                     placeholder="Email"
                     required
+                    style="display: none; visibility: hidden"
+                  />
+
+                  <input
+                    required
+                    type="tel"
+                    placeholder="Telefone"
+                    name="Phone_PetFound"
+                    class="Phone_PetFound"
                   />
 
                   <input
