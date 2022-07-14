@@ -151,7 +151,7 @@ nav li {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: #fff;
+  background-color: #E3FFDA !important;
   width: 40vw;
 }
 
@@ -170,6 +170,8 @@ nav li {
   justify-content: center;
   padding: 0 25px;
   margin: 2rem 0;
+  background-color: #E3FFDA;
+  
 }
 
 .modal-footer {
@@ -233,7 +235,7 @@ nav li {
 }
 
 #register {
-  wight: 100%;
+  width: 100%;
   background-color: #fff;
   border-radius: 5px;
   border: none;
@@ -259,10 +261,12 @@ nav li {
 
 #display-image-lost,
 #display-image-found {
-  width: 100%;
+  width: 65%;
   height: 200px;
   border: 1px solid black;
-  background-size: cover;
+  background-position: center;
+  background-size:contain;
+  background-repeat: no-repeat;
 }
 
 .botaoLogado,
@@ -351,6 +355,49 @@ nav li {
   font-size: 1.5rem;
   margin-left: 1rem;
   word-break: break-word;
+}
+
+.form_box{
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: var(--verdeForte);
+}
+
+.IdentificationImage_PetLost,
+.IdentificationImage_PetFound{
+  font-size: 12px;
+  background-color: #E3FFDA;
+  box-shadow: 1px 1px 5px rgb(0, 0, 0, 0.5);
+  padding: 5px 5px;
+  margin: 5px 0px;
+}
+
+.btn-anunciar button{
+  background-color: var(--verdeMedio);
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 10px;
+  border-color: var(--verdeForte);
+  margin-right: 20px;
+}
+
+.btn-secondary{
+  background-color: var(--branco);
+  color: black;
+}
+
+@media (max-width: 1015px){
+  .DescriptionPet_PetLost,
+  .Location_PetLost,
+  .DescriptionPet_PetFound,
+  .Location_PetFound{
+    width: 80%;
+  }
+
+  .IdentificationImage_PetLost{
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 880px){

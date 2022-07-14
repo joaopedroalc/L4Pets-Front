@@ -116,7 +116,7 @@
                   <input
                     type="text"
                     name="email"
-                    class="emailUserLogadoLost"
+                    class="emailUserLogadoLost form_box"
                     placeholder="Email"
                     required
                     style="display: none; visibility: hidden"
@@ -126,19 +126,21 @@
                     name="DescriptionPet_PetLost"
                     placeholder="Descrição do PET"
                     required
-                    class="DescriptionPet_PetLost"
+                    class="DescriptionPet_PetLost form_box"
                   ></textarea>
+
                   <textarea
                     name="Location_PetLost"
-                    class="Location_PetLost"
+                    class="Location_PetLost form_box"
                     placeholder="Localizacao"
                     required
                   ></textarea>
+
                   <input
                     type="text"
                     required
                     placeholder="Recompensa R$"
-                    class="Reword_PetLost"
+                    class="Reword_PetLost form_box"
                     name="Reword_PetLost"
                   />
 
@@ -147,7 +149,7 @@
                     type="tel"
                     placeholder="Telefone"
                     name="Phone_PetLost"
-                    class="Phone_PetLost"
+                    class="Phone_PetLost form_box"
                   />
 
                   <input
@@ -159,17 +161,22 @@
                   />
 
                   <div id="display-image-lost"></div>
-                  <button type="submit">Anunciar</button>
                 </form>
               </div>
               <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-dismiss="modal"
-                >
-                  Fechar
-                </button>
+                <div class="btn-anunciar">
+                    <button type="submit">Anunciar</button>
+                </div>
+                
+                <div class="btn-secondary">
+                  <button
+                    type="button"
+                    class="btn"
+                    data-dismiss="modal"
+                    >
+                    Fechar
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -209,18 +216,18 @@
                     name="DescriptionPet_PetFound"
                     placeholder="Descrição do PET"
                     required
-                    class="DescriptionPet_PetFound"
+                    class="DescriptionPet_PetFound form_box"
                   ></textarea>
                   <textarea
                     name="Location_PetFound"
-                    class="Location_PetFound"
+                    class="Location_PetFound form_box"
                     placeholder="Localizacao"
                     required
                   ></textarea>
                   <input
                     type="email"
                     name="email"
-                    class="emailUserLogadoFound"
+                    class="emailUserLogadoFound form_box"
                     placeholder="Email"
                     required
                     style="display: none; visibility: hidden"
@@ -231,7 +238,7 @@
                     type="tel"
                     placeholder="Telefone"
                     name="Phone_PetFound"
-                    class="Phone_PetFound"
+                    class="Phone_PetFound form_box"
                   />
 
                   <input
@@ -243,17 +250,24 @@
                   />
 
                   <div id="display-image-found"></div>
-                  <button type="submit">Anunciar</button>
+                  
+                  
                 </form>
               </div>
               <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-dismiss="modal"
-                >
-                  Fechar
-                </button>
+                <div class="btn-anunciar">
+                    <button type="submit">Anunciar</button>
+                </div>
+
+                <div class="btn-secondary">
+                  <button
+                    type="button"
+                    class="btn"
+                    data-dismiss="modal"
+                    >
+                    Fechar
+                  </button>
+                </div>
               </div>
             </div>
           </div>
