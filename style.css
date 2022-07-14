@@ -180,6 +180,7 @@ nav li {
   display: flex;
   align-self: flex-start;
   justify-content: center;
+  gap: 2rem;
   padding: 0 25px;
   margin: 2rem 0;
   background-color: #e3ffda;
@@ -436,5 +437,17 @@ nav li {
   }
   .option {
     font-size: 1rem;
+  }
+  .modal-content {
+    width: 90vw;
+    margin: 2rem auto;
+  }
+  input {
+    width: 100%;
+    margin: 0.5rem 0 !important;
+  }
+
+  #display-image-lost {
+    width: 100%;
   }
 }
