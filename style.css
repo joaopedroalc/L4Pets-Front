@@ -33,6 +33,19 @@
   visibility: hidden;
 }
 
+.custom-select {
+  font-size: 2rem;
+  border: 2px solid #234d20;
+  background-color: #fff;
+  color: #000;
+}
+
+.option {
+  font-size: 2rem;
+  background-color: #234d20;
+  color: #fff;
+}
+
 .options .botaoRegistrarPet {
   margin-top: 0.5rem;
 }
@@ -45,7 +58,6 @@
 .phone-container {
   display: flex;
   align-items: flex-end;
-  justify-content: center;
   gap: 0.5rem;
 }
 
@@ -151,7 +163,7 @@ nav li {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: #E3FFDA !important;
+  background-color: #e3ffda !important;
   width: 40vw;
 }
 
@@ -170,8 +182,7 @@ nav li {
   justify-content: center;
   padding: 0 25px;
   margin: 2rem 0;
-  background-color: #E3FFDA;
-  
+  background-color: #e3ffda;
 }
 
 .modal-footer {
@@ -265,7 +276,7 @@ nav li {
   height: 200px;
   border: 1px solid black;
   background-position: center;
-  background-size:contain;
+  background-size: contain;
   background-repeat: no-repeat;
 }
 
@@ -328,6 +339,7 @@ nav li {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 2rem 0;
 }
 
 .img-card {
@@ -357,22 +369,22 @@ nav li {
   word-break: break-word;
 }
 
-.form_box{
+.form_box {
   border-radius: 5px;
   border-width: 1px;
   border-color: var(--verdeForte);
 }
 
 .IdentificationImage_PetLost,
-.IdentificationImage_PetFound{
+.IdentificationImage_PetFound {
   font-size: 12px;
-  background-color: #E3FFDA;
+  background-color: #e3ffda;
   box-shadow: 1px 1px 5px rgb(0, 0, 0, 0.5);
   padding: 5px 5px;
   margin: 5px 0px;
 }
 
-.btn-anunciar button{
+.btn-anunciar button {
   background-color: var(--verdeMedio);
   color: white;
   border: none;
@@ -382,39 +394,47 @@ nav li {
   margin-top: 20px;
 }
 
-.btn-secondary{
+.btn-secondary {
   background-color: var(--branco);
   color: black;
-}
-
-@media (max-width: 1015px){
-  .DescriptionPet_PetLost,
-  .Location_PetLost,
-  .DescriptionPet_PetFound,
-  .Location_PetFound{
-    width: 80%;
-  }
-
-  .IdentificationImage_PetLost{
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 880px){
-  .cardsAll{
-    display: block;
-  }
-
 }
 
 @media (max-width: 768px) {
   .options {
     flex-direction: column;
   }
-}
-
-@media (max-width: 520px){
-  .logo img{
+  .cardsAll {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  .card-image {
+    display: block;
+    width: 80vw;
+    height: 300px;
+    max-width: 100%;
+    max-height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  #header {
+    width: 100vw;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    background-color: var(--verdeFraco);
+    justify-content: space-around;
+  }
+  #selects h1 {
+    font-size: 2rem;
+    max-width: 70%;
+    text-align: center;
     display: none;
+    visibility: hidden;
+  }
+  .option {
+    font-size: 1rem;
   }
 }
