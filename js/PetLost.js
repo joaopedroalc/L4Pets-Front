@@ -1,6 +1,6 @@
 const formLost = document.querySelector('.cadastraPetLost');
 
-const apiLost = "http://localhost:8089/PetLost"
+const apiLost = "https://api-l4pets.herokuapp.com/PetLost"
 
 
 function pegaApiLost() {

@@ -21,7 +21,7 @@ document.getElementById('logout').addEventListener('click', LogoutUser)
 
 let provider = new firebase.auth.GoogleAuthProvider()
 
-const apiUsers = "http://localhost:8089/Users"
+const apiUsers = "https://api-l4pets.herokuapp.com/Users"
 
 function GoogleLogin() {
   firebase.auth().signInWithPopup(provider).then(res => {

@@ -1,6 +1,6 @@
 const formFound = document.querySelector('.cadastraPetFound');
 
-const apiFound = "http://localhost:8089/PetFound"
+const apiFound = "https://api-l4pets.herokuapp.com/PetFound"
 
 function pegaApiFound() {
   axios.get(apiFound)
