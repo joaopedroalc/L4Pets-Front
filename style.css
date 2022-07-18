@@ -309,7 +309,7 @@ nav li {
   grid-template-columns: 1fr 1fr;
   align-items: flex-start;
   gap: 2rem;
-  width: 55vw;
+  width: 100%;
 }
 
 .cardsLost,
